@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "orgid": 1,
+    "standerd": [
+      {
+        "name": "执行力",
+        "weight": 5
+      },
+      {
+        "name":"代码质量",
+        "weight":3
+      },
+      {
+        "name":"使用新技术",
+        "weight":2
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "orgid": 2,
+    "standerd": [
+      {
+        "name": "执行力",
+        "weight": 3
+      },
+      {
+        "name":"客户服务",
+        "weight":3
+      },
+      {
+        "name":"工作安排",
+        "weight":4
+      }
+    ]
+  }
+]

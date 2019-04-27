@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "type": "developer",
+    "name": "开发"
+  },
+  {
+    "id": 2,
+    "type": "project",
+    "name": "项目经理"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "type": "admin",
+    "name": "管理员"
+  },
+  {
+    "id": 2,
+    "type": "normal",
+    "name": "普通用户"
+  }
+]

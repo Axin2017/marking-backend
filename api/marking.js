@@ -1,8 +1,9 @@
-const db = require("../utils/db");
+const {baseop} = require("../utils/db");
+
 
 exports.getMarkingList = () => {
   return new Promise((resolve, reject) => {
-    db.find("marking", "marking", {}, (err, result) => {
+    baseop.find("marking", "marking", {}, (err, result) => {
       if (err) {
         reject(err);
       }
@@ -12,5 +13,5 @@ exports.getMarkingList = () => {
 };
 
 exports.insertMarking = (marking, callback) => {
-  db.findOne("marking", "marking", { name: marking.name }, callback);
+  baseop.findOne("marking", "marking", { name: marking.name }, callback);
 };
