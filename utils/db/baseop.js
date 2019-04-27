@@ -13,26 +13,31 @@ const connectDb = async () => {
   return rs;
 };
 
-const findOne = (dbname, collectionname, json) => {
-  connectDb(function(db) {
-    const DB = db.db(dbname);
-    const collection = DB.collection(collectionname);
-    const result = collection.findOne(json, null);
-  });
+const findOne = async (dbname, collectionname, query) => {
+  const db = await connectDb();
+  const DB = db.db(dbname);
+  const collection=DB.collection(collectionname);
+  const result =await collection.findOne(query);
+  db.close();
+  return result;
 };
 
-const find = (dbname, collectionname, json, callback) => {
-  connectDb(function(db) {
-    const DB = db.db(dbname);
-    const collection = DB.collection(collectionname);
-    collection.find(json).toArray(function(err, docs) {
-      if (err) {
-        callback(err);
-      }
-      callback(null, docs);
-    });
-  });
+const find = async (dbname, collectionname, query) => {
+  const db = await connectDb();
+  const DB = db.db(dbname);
+  const collection=DB.collection(collectionname);
+  const result =await collection.find(query);
+  db.close();
+  return result;
 };
+
+const dropCollection = async (dbname,collectionname) => {
+  const db = await connectDb();
+  const DB = db.db(dbname);
+  const isDrop =await DB.dropCollection(collectionname);
+  db.close();
+  return isDrop;
+}
 
 const createCollection =async (dbname, collectionname, option) => {
   const db = await connectDb();
@@ -58,5 +63,6 @@ module.exports = {
   findOne,
   find,
   insertOne,
-  createCollection
+  createCollection,
+  dropCollection
 };

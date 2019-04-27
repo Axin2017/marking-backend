@@ -1,17 +1,19 @@
 const {baseop} = require("../utils/db");
 
+const getMarking = async (query)=>{
+  return await baseop.find("marking","marking",query)
+}
 
-exports.getMarkingList = () => {
-  return new Promise((resolve, reject) => {
-    baseop.find("marking", "marking", {}, (err, result) => {
-      if (err) {
-        reject(err);
-      }
-      resolve(result);
-    });
-  });
+const getMarkingList =async () => {
+  return await baseop.find("marking","marking",{})
 };
 
-exports.insertMarking = (marking, callback) => {
-  baseop.findOne("marking", "marking", { name: marking.name }, callback);
+const insertMarking =async (marking) => {
+  return await baseop.insertOne("marking","marking",marking)
 };
+
+module.exports={
+  getMarking,
+  getMarkingList,
+  insertMarking
+}

@@ -1,5 +1,4 @@
 const db=require('./db')
-const marking=require('./marking')
 
 const routerArray=[db]
 

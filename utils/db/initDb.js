@@ -7,6 +7,11 @@ const roleList = require("../../dataJson/role.json");
 
 const initCollection = async () => {
   await Promise.all([
+    baseop.dropCollection("marking", "marking"),
+    baseop.dropCollection("marking", "org"),
+    baseop.dropCollection("marking", "role"),
+    baseop.dropCollection("marking", "user"),
+    baseop.dropCollection("marking", "standerd"),
     baseop.createCollection("marking", "marking"),
     baseop.createCollection("marking", "org"),
     baseop.createCollection("marking", "role"),
