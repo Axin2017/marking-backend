@@ -3,20 +3,11 @@ const markingapi = require("../../api/marking");
 exports.router = [
   {
     method: "get",
-    path: "/getMarkingList",
+    path: "/getMarking",
     callback: async (ctx, next) => {
-      const result = await markingapi.getMarkingList();
-      ctx.set("Content-Type", "application/json");
-      ctx.body = JSON.stringify(result);
-    }
-  },
-  {
-    method: "get",
-    path: "/getMarking/:marking",
-    callback: async (ctx, next) => {
-      const result = await markingapi.getMarking(marking);
-      ctx.set("Content-Type", "application/json");
-      ctx.body = JSON.stringify(result);
+      const query = ctx.query || {};
+      const result = await markingapi.getMarking(query);
+      ctx.body = result;
     }
   },
   {
@@ -26,8 +17,7 @@ exports.router = [
       const marking = ctx.request.body.marking;
       const result = await markingapi.insertMarking(marking);
       console.log(marking);
-      ctx.set("Content-Type", "application/json");
-      ctx.body = JSON.stringify(result);
+      ctx.body = result;
     }
   }
 ];

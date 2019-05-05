@@ -3,31 +3,20 @@ const userapi = require("../../api/user");
 exports.router = [
   {
     method: "get",
-    path: "/getUserList",
+    path: "/getUser",
     callback: async (ctx, next) => {
-      const result = await userapi.getUserList();
-      ctx.set("Content-Type", "application/json");
-      ctx.body = JSON.stringify(result);
-    }
-  },
-  {
-    method: "get",
-    path: "/getUser/:userName",
-    callback: async (ctx, next) => {
-      const result = await markingapi.getMarking(marking);
-      ctx.set("Content-Type", "application/json");
-      ctx.body = JSON.stringify(result);
+      const query = ctx.query || {};
+      const result = await userapi.getUser(query);
+      ctx.body = result;
     }
   },
   {
     method: "post",
-    path: "/addMarking",
+    path: "/addUser",
     callback: async (ctx, next) => {
-      const marking = ctx.request.body.marking;
-      const result = await markingapi.insertMarking(marking);
-      console.log(marking);
-      ctx.set("Content-Type", "application/json");
-      ctx.body = JSON.stringify(result);
+      const user = ctx.request.body.user;
+      const result = await userapi.insertUser(marking);
+      ctx.body = result;
     }
   }
 ];

@@ -6,8 +6,6 @@ exports.router=[
     path:'/initDb',
     callback:async (ctx,next)=>{
       const result=await dbapi.initDatabase()
-      console.log('router.initDb')
-      ctx.set("Content-Type", "application/json")
       ctx.body = JSON.stringify(result)
     }
   }
