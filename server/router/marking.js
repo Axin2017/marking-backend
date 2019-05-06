@@ -16,7 +16,6 @@ exports.router = [
     callback: async (ctx, next) => {
       const marking = ctx.request.body.marking;
       const result = await markingapi.insertMarking(marking);
-      console.log(marking);
       ctx.body = result;
     }
   }

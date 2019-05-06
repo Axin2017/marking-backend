@@ -18,7 +18,6 @@ const initCollection = async () => {
     baseop.createCollection("marking", "user"),
     baseop.createCollection("marking", "standerd")
   ]);
-  console.log("initDb.initCollection");
 };
 
 const initDocument = async () => {
@@ -44,11 +43,9 @@ const initDocument = async () => {
     );
   });
   await Promise.all(promiseArray);
-  console.log("initDb.initDocument");
 };
 
 exports.init = async () => {
-  console.log("initDb.init");
   await initCollection();
   await initDocument();
 };

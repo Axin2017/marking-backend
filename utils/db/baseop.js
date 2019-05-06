@@ -26,7 +26,7 @@ const find = async (dbname, collectionname, query) => {
   const db = await connectDb();
   const DB = db.db(dbname);
   const collection=DB.collection(collectionname);
-  const result =await collection.find(query);
+  const result =await collection.find(query).toArray();
   db.close();
   return result;
 };
@@ -52,9 +52,7 @@ const insertOne = async (dbname, collectionname, json) => {
   const DB = db.db(dbname);
   const collection = DB.collection(collectionname);
   const rs = await collection.insertOne(json);
-  console.log('baseOp.insertOne');
   db.close()
-  console.log('db.close');
   return rs;
 };
 

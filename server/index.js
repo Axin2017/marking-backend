@@ -4,6 +4,13 @@ const router = require("koa-router")(); //注意这里是调用之后马上执�
 const bodyParser = require("koa-bodyparser");
 const { registRouter } = require("./router");
 
+
+// 允许跨域
+app.use(async (ctx, next) => {
+  ctx.set('Cache-Control','no-cache');
+  ctx.set('Access-Control-Allow-Origin','*');
+  await next();
+})
 // 统一错误处理
 app.on("error", (err, ctx) => {
   ctx.response.status = err.statusCode || err.status || 500;
