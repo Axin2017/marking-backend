@@ -1,7 +1,5 @@
 [
   {
-    "id": 1,
-    "orgid": 1,
     "standerd": [
       {
         "name": "执行力",
@@ -18,8 +16,6 @@
     ]
   },
   {
-    "id": 2,
-    "orgid": 2,
     "standerd": [
       {
         "name": "执行力",

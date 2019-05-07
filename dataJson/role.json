@@ -1,12 +1,15 @@
 [
   {
-    "id": 1,
     "type": "admin",
     "name": "管理员"
   },
   {
-    "id": 2,
     "type": "normal",
     "name": "普通用户"
+  },
+  {
+    "_id":"superadmin",
+    "type":"superadmin",
+    "name":"超级管理员"
   }
 ]
