@@ -1,21 +1,26 @@
 const Koa = require("koa");
 const app = new Koa();
+var cors = require('koa2-cors');
 const router = require("koa-router")(); //注意这里是调用之后马上执行
 const bodyParser = require("koa-bodyparser");
 const { registRouter } = require("./router");
 
 
 // 允许跨域
-app.use(async (ctx, next) => {
-  ctx.set('Cache-Control','no-cache');
-  ctx.set('Access-Control-Allow-Origin','*');
-  await next();
-})
-// 拦截请求信息
+app.use(cors())
+// 拦截请求和返回，调试
 app.use(async (ctx,next)=>{
-  const query=ctx.query
-  query && console.log(`query=${JSON.stringify(query)}`)
+  const start=new Date()
+  const path=ctx.path
+  const getQuery=ctx.query
+  const postBody=ctx.request.body
+  console.log(`${start.toLocaleString()}\npath=${JSON.stringify(path)}`)
+  getQuery && console.log(`getQuery=${JSON.stringify(getQuery)}`)
+  postBody && console.log(`${start.toLocaleString()}\n postBody=${JSON.stringify(postBody)}`)
   await next();
+  const end=new Date()
+  const result=ctx.body
+  result && console.log(`${end.toLocaleString()}\n result=${JSON.stringify(result)}`)
 })
 
 // 注册路由

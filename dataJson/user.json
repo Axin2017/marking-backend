@@ -1,43 +1,43 @@
 [
   {
-    "name":"超级管理员",
+    "username":"超级管理员",
     "password":"superadmin",
-    "roleid":"superadmin"
+    "roles":["superadmin","admin"]
   },
   {
-    "name":"张三",
+    "username":"张三",
     "password":"1"
   },
   {
-    "name":"李四",
+    "username":"李四",
     "password":"1"
   },
   {
-    "name":"王五",
+    "username":"王五",
     "password":"1"
   },
   {
-    "name":"赵六",
+    "username":"赵六",
     "password":"1"
   },
   {
-    "name":"陈七",
+    "username":"陈七",
     "password":"1"
   },
   {
-    "name":"张工",
+    "username":"张工",
     "password":"1"
   },
   {
-    "name":"李工",
+    "username":"李工",
     "password":"1"
   },
   {
-    "name":"王工",
+    "username":"王工",
     "password":"1"
   },
   {
-    "name":"赵工",
+    "username":"赵工",
     "password":"1"
   }
 ]
