@@ -14,7 +14,7 @@ exports.router = [
     method: "post",
     path: "/addMarking",
     callback: async (ctx, next) => {
-      const marking = ctx.request.body.marking;
+      const marking = ctx.request.body;
       const result = await markingapi.insertMarking(marking);
       ctx.body = result;
     }

@@ -8,6 +8,13 @@ const { registRouter } = require("./router");
 
 // 允许跨域
 app.use(cors())
+
+// 注册路由
+registRouter(router);
+// 在router之前加上
+app.use(bodyParser());
+
+
 // 拦截请求和返回，调试
 app.use(async (ctx,next)=>{
   const start=new Date()
@@ -23,13 +30,8 @@ app.use(async (ctx,next)=>{
   result && console.log(`${end.toLocaleString()}\n result=${JSON.stringify(result)}`)
 })
 
-// 注册路由
-registRouter(router);
-// 在router之前加上
-app.use(bodyParser());
 // 路由
 app.use(router.routes());
-
 // 统一错误处理
 app.on("error", (err, ctx) => {
   console.error("server error:\n"+err)
