@@ -6,6 +6,7 @@
  */
 
 const MongoClient = require("mongodb").MongoClient;
+const ObjectId = require('mongodb').ObjectId
 const dbUrl = "mongodb://localhost:27017";
 
 const connectDb = async () => {
@@ -17,6 +18,9 @@ const findOne = async (dbname, collectionname, query) => {
   const db = await connectDb();
   const DB = db.db(dbname);
   const collection=DB.collection(collectionname);
+  if(query._id){
+    query._id=ObjectId(query._id)
+  }
   const result =await collection.findOne(query);
   db.close();
   return result;
@@ -26,6 +30,9 @@ const find = async (dbname, collectionname, query) => {
   const db = await connectDb();
   const DB = db.db(dbname);
   const collection=DB.collection(collectionname);
+  if(query._id){
+    query._id=ObjectId(query._id)
+  }
   const result =await collection.find(query).toArray();
   db.close();
   return result;
@@ -56,11 +63,24 @@ const insertOne = async (dbname, collectionname, json) => {
   return rs;
 };
 
+const del = async (dbname,collectionname, query) =>{
+  const db = await connectDb();
+  const DB = db.db(dbname);
+  const collection = DB.collection(collectionname);
+  if(query._id){
+    query._id=ObjectId(query._id)
+  }
+  const rs =await collection.deleteMany(query)
+  db.close
+  return rs
+}
+
 module.exports = {
   connectDb,
   findOne,
   find,
   insertOne,
   createCollection,
-  dropCollection
+  dropCollection,
+  del
 };

@@ -14,8 +14,20 @@ exports.router = [
     method: "post",
     path: "/addStanderd",
     callback: async (ctx, next) => {
-      const standerd = ctx.request.body.standerd;
+      const standerd = ctx.request.body;
       const result = await standerdapi.insertStanderd(standerd);
+      ctx.body = result;
+    }
+  },
+  {
+    method: "post",
+    path: "/deleteStanderd",
+    callback: async (ctx, next) => {
+      const query = ctx.request.body;
+      if(!query._id){
+        query._id=''
+      }
+      const result = await standerdapi.deleteStanderd(query);
       ctx.body = result;
     }
   }

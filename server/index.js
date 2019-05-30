@@ -27,6 +27,7 @@ app.use(async (ctx,next)=>{
   await next();
   const end=new Date()
   const result=ctx.body
+  ctx.body={data:ctx.body,status:1,message:''}
   result && console.log(`${end.toLocaleString()}\n result=${JSON.stringify(result)}`)
 })
 

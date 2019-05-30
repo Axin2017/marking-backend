@@ -8,7 +8,12 @@ const insertOrg =async (org) => {
   return await baseop.insertOne("marking","org",org)
 };
 
+const deleteOrg = async (query)=>{
+  return await baseop.del("marking","org",query)
+}
+
 module.exports={
   getOrg,
-  insertOrg
+  insertOrg,
+  deleteOrg
 }

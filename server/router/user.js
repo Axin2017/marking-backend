@@ -14,7 +14,7 @@ exports.router = [
     method: "post",
     path: "/user/addUser",
     callback: async (ctx, next) => {
-      const user = ctx.request.body.user;
+      const user = ctx.request.body;
       const result = await userapi.insertUser(user);
       ctx.body = result;
     }
@@ -29,6 +29,18 @@ exports.router = [
         result=result[0]
         result.token=result.username+result.password
       }
+      ctx.body = result;
+    }
+  },
+  {
+    method: "post",
+    path: "/deleteUser",
+    callback: async (ctx, next) => {
+      const query = ctx.request.body;
+      if(!query._id){
+        query._id=''
+      }
+      const result = await userapi.deleteUser(query);
       ctx.body = result;
     }
   }
