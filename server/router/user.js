@@ -34,13 +34,25 @@ exports.router = [
   },
   {
     method: "post",
-    path: "/deleteUser",
+    path: "/user/deleteUser",
     callback: async (ctx, next) => {
       const query = ctx.request.body;
       if(!query._id){
         query._id=''
       }
       const result = await userapi.deleteUser(query);
+      ctx.body = result;
+    }
+  },
+  {
+    method: "post",
+    path: "/user/updateUser",
+    callback: async (ctx, next) => {
+      const {query,set} = ctx.request.body;
+      if(!query._id){
+        query._id=''
+      }
+      const result = await userapi.updateUser(query,set);
       ctx.body = result;
     }
   }

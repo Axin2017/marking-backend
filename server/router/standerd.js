@@ -30,5 +30,17 @@ exports.router = [
       const result = await standerdapi.deleteStanderd(query);
       ctx.body = result;
     }
+  },
+  {
+    method: "post",
+    path: "/updateStanderd",
+    callback: async (ctx, next) => {
+      const {query,set} = ctx.request.body;
+      if(!query._id){
+        query._id=''
+      }
+      const result = await standerdapi.updateStanderd(query,set);
+      ctx.body = result;
+    }
   }
 ];

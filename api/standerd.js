@@ -12,8 +12,13 @@ const deleteStanderd =async (query) => {
   return await baseop.del("marking","standerd",query)
 };
 
+const updateStanderd= async(query,set) => {
+  return await baseop.update("marking","standerd",query,set)
+}
+
 module.exports={
   getStanderd,
   insertStanderd,
-  deleteStanderd
+  deleteStanderd,
+  updateStanderd
 }

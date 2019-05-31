@@ -12,8 +12,13 @@ const deleteUser = async (query)=>{
   return await baseop.del("marking","user",query)
 }
 
+const updateUser= async(query,set) => {
+  return await baseop.update("marking","user",query,set)
+}
+
 module.exports={
   getUser,
   insertUser,
-  deleteUser
+  deleteUser,
+  updateUser
 }

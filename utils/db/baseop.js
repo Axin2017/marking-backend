@@ -71,7 +71,22 @@ const del = async (dbname,collectionname, query) =>{
     query._id=ObjectId(query._id)
   }
   const rs =await collection.deleteMany(query)
-  db.close
+  db.close()
+  return rs
+}
+
+const update = async (dbname,collectionname, query, set) =>{
+  const db = await connectDb();
+  const DB = db.db(dbname);
+  const collection = DB.collection(collectionname);
+  if(query._id){
+    query._id=ObjectId(query._id)
+  }
+  if(set._id){
+    delete set._id
+  }
+  const rs =await collection.update(query,set)
+  db.close()
   return rs
 }
 
@@ -82,5 +97,6 @@ module.exports = {
   insertOne,
   createCollection,
   dropCollection,
-  del
+  del,
+  update
 };
