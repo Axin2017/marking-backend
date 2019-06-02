@@ -12,8 +12,14 @@ const deleteOrg = async (query)=>{
   return await baseop.del("marking","org",query)
 }
 
+const updateOrg= async(query,set) => {
+  return await baseop.update("marking","org",query,set)
+}
+
+
 module.exports={
   getOrg,
   insertOrg,
-  deleteOrg
+  deleteOrg,
+  updateOrg
 }

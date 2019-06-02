@@ -30,5 +30,18 @@ exports.router = [
       const result = await orgapi.deleteOrg(query);
       ctx.body = result;
     }
+  },
+  ,
+  {
+    method: "post",
+    path: "/updateOrg",
+    callback: async (ctx, next) => {
+      const {query,set} = ctx.request.body;
+      if(!query._id){
+        query._id=''
+      }
+      const result = await orgapi.updateOrg(query,set);
+      ctx.body = result;
+    }
   }
 ];
