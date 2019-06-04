@@ -1,10 +1,10 @@
 [
   {
-    "type": "developer",
-    "name": "开发"
+    "name": "开发",
+    "users":[]
   },
   {
-    "type": "project",
-    "name": "项目经理"
+    "name": "项目经理",
+    "users":[]
   }
 ]

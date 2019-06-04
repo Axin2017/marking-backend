@@ -6,38 +6,47 @@
   },
   {
     "username":"张三",
-    "password":"1"
+    "password":"1",
+    "sex":"男"
   },
   {
     "username":"李四",
-    "password":"1"
+    "password":"1",
+    "sex":"男"
   },
   {
     "username":"王五",
-    "password":"1"
+    "password":"1",
+    "sex":"男"
   },
   {
     "username":"赵六",
-    "password":"1"
+    "password":"1",
+    "sex":"男"
   },
   {
     "username":"陈七",
-    "password":"1"
+    "password":"1",
+    "sex":"男"
   },
   {
     "username":"张工",
-    "password":"1"
+    "password":"1",
+    "sex":"男"
   },
   {
     "username":"李工",
-    "password":"1"
+    "password":"1",
+    "sex":"女"
   },
   {
     "username":"王工",
-    "password":"1"
+    "password":"1",
+    "sex":"男"
   },
   {
     "username":"赵工",
-    "password":"1"
+    "password":"1",
+    "sex":"男"
   }
 ]
