@@ -31,7 +31,6 @@ exports.router = [
       ctx.body = result;
     }
   },
-  ,
   {
     method: "post",
     path: "/updateOrg",

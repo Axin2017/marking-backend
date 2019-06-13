@@ -30,5 +30,17 @@ exports.router = [
       const result = await markingapi.deleteMarking(query);
       ctx.body = result;
     }
+  },
+  {
+    method: "post",
+    path: "/updateMarking",
+    callback: async (ctx, next) => {
+      const {query,set} = ctx.request.body;
+      if(!query._id){
+        query._id=''
+      }
+      const result = await markingapi.updateMarking(query,set);
+      ctx.body = result;
+    }
   }
 ];
