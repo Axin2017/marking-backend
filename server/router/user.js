@@ -1,5 +1,5 @@
 const userapi = require("../../api/user");
-
+const {decode,encode} = require('../../utils/base64')
 exports.router = [
   {
     method: "get",
@@ -20,16 +20,18 @@ exports.router = [
     }
   },
   {
-    method: "get",
+    method: "post",
     path: "/user/login",
     callback: async (ctx, next) => {
-      const query = ctx.query || {};
+      const query = ctx.request.body;
       let result = await userapi.getUser(query);
       if(result && result.length){
         result=result[0]
-        result.token=result.username+result.password
+        result.token=encode(result.username+'-'+result.password)
+        ctx.body = result;
+      }else{
+        ctx.body = ''
       }
-      ctx.body = result;
     }
   },
   {
@@ -54,6 +56,29 @@ exports.router = [
       }
       const result = await userapi.updateUser(query,set);
       ctx.body = result;
+    }
+  },
+  {
+    method: "get",
+    path: "/user/info",
+    callback: async (ctx, next) => {
+      const query = ctx.query || {};
+      let username = ''
+      let password = ''
+      if(query.token){
+        let decodeToken = decode(query.token)
+        let accounts = decodeToken.split('-')
+        username = accounts[0]
+        password = accounts[1]
+      }
+      let result = await userapi.getUser({username,password});
+      if(result && result.length){
+        result=result[0]
+        result.token=encode(result.username+'-'+result.password)
+        ctx.body = result;
+      }else{
+        ctx.body = ''
+      }
     }
   }
 ];
