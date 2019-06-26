@@ -7,46 +7,55 @@
   {
     "username":"张三",
     "password":"1",
-    "sex":"男"
+    "sex":"男",
+    "roles":[]
   },
   {
     "username":"李四",
     "password":"1",
-    "sex":"男"
+    "sex":"男",
+    "roles":[]
   },
   {
     "username":"王五",
     "password":"1",
-    "sex":"男"
+    "sex":"男",
+    "roles":[]
   },
   {
     "username":"赵六",
     "password":"1",
-    "sex":"男"
+    "sex":"男",
+    "roles":[]
   },
   {
     "username":"陈七",
     "password":"1",
-    "sex":"男"
+    "sex":"男",
+    "roles":[]
   },
   {
     "username":"张工",
     "password":"1",
-    "sex":"男"
+    "sex":"男",
+    "roles":[]
   },
   {
     "username":"李工",
     "password":"1",
-    "sex":"女"
+    "sex":"女",
+    "roles":[]
   },
   {
     "username":"王工",
     "password":"1",
-    "sex":"男"
+    "sex":"男",
+    "roles":[]
   },
   {
     "username":"赵工",
     "password":"1",
-    "sex":"男"
+    "sex":"男",
+    "roles":[]
   }
 ]
