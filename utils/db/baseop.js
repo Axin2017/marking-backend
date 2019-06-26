@@ -75,7 +75,7 @@ const del = async (dbname,collectionname, query) =>{
   return rs
 }
 
-const update = async (dbname,collectionname, query, set) =>{
+const update = async (dbname,collectionname, query, set, options = {}) =>{
   const db = await connectDb();
   const DB = db.db(dbname);
   const collection = DB.collection(collectionname);
@@ -85,7 +85,7 @@ const update = async (dbname,collectionname, query, set) =>{
   if(set._id){
     delete set._id
   }
-  const rs =await collection.update(query,set)
+  const rs =await collection.updateMany (query,{$set:set},options)
   db.close()
   return rs
 }

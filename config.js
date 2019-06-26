@@ -1,0 +1,3 @@
+module.exports = {
+  dbname: 'marking'
+}
