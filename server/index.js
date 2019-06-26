@@ -21,14 +21,14 @@ app.use(async (ctx,next)=>{
   const path=ctx.path
   const getQuery=ctx.query
   const postBody=ctx.request.body
-  console.log(`${start.toLocaleString()}\npath=${JSON.stringify(path)}`)
-  getQuery && console.log(`getQuery=${JSON.stringify(getQuery)}`)
-  postBody && console.log(`${start.toLocaleString()}\n postBody=${JSON.stringify(postBody)}`)
+  console.log(`${start.toLocaleString()}\r\npath=${JSON.stringify(path)}\r\n`)
+  getQuery && console.log(`getQuery=${JSON.stringify(getQuery)}\r\n`)
+  postBody && console.log(`${start.toLocaleString()}\r\n postBody=${JSON.stringify(postBody)}\r\n`)
   await next();
   const end=new Date()
   const result=ctx.body
   ctx.body={data:ctx.body,status:1,message:''}
-  result && console.log(`${end.toLocaleString()}\n result=${JSON.stringify(result)}`)
+  result && console.log(`${end.toLocaleString()}\r\n result=${JSON.stringify(result)}\r\n`)
 })
 
 // 路由
